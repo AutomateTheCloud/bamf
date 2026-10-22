@@ -1,0 +1,30 @@
+/* Automate the Cloud role colors adopted by BAMF. */
+:root {
+  --bamf-surface: #F9FBFA;
+  --bamf-card: #FFFFFF;
+  --bamf-ink: #0E1A18;
+  --bamf-slate: #586B67;
+  --bamf-brand: #1D9E75;
+  --bamf-action: #0B6B52;
+  --bamf-on-action: #FFFFFF;
+  --bamf-tint: #DCF2EA;
+  --bamf-tint-text: #074A3B;
+  --bamf-success: #2F7D3B;
+  --bamf-warning: #9A6210;
+  --bamf-error: #A32D2D;
+}
+[data-theme="dark"] {
+  --bamf-surface: #0B1513;
+  --bamf-card: #101C19;
+  --bamf-ink: #E6EEEC;
+  --bamf-slate: #8FA39D;
+  --bamf-brand: #1D9E75;
+  --bamf-action: #45CFA5;
+  --bamf-on-action: #0B1513;
+  --bamf-tint: #0F3A30;
+  --bamf-tint-text: #A8E6D2;
+  --bamf-success: #4CC26A;
+  --bamf-warning: #E0A040;
+  --bamf-error: #F07C7C;
+}
+:root { --bamf-font-heading: "IBM Plex Mono", monospace; --bamf-font-body: "Space Grotesk", sans-serif; --bamf-font-quote: "IBM Plex Serif", serif; }

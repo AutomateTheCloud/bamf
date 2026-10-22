@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Automate the Cloud">
+  <title>Automate the Cloud</title>
+<defs>
+    <clipPath id="gs"><path d="M 48 0 L 64 0 L 64 8 L 72 8 L 72 16 L 88 16 L 88 24 L 104 24 L 104 32 L 96 32 L 96 40 L 88 40 L 88 48 L 8 48 A 12 12 0 0 1 -4 36 A 20 20 0 0 1 16 14 A 18 18 0 0 1 48 0 Z"/></clipPath>
+  </defs>
+  <rect width="128" height="128" fill="#F9FBFA"/>
+  <g transform="translate(16.7174 44.6701) scale(0.947547)">
+  <path d="M 48 0 L 64 0 L 64 8 L 72 8 L 72 16 L 88 16 L 88 24 L 104 24 L 104 32 L 96 32 L 96 40 L 88 40 L 88 48 L 8 48 A 12 12 0 0 1 -4 36 A 20 20 0 0 1 16 14 A 18 18 0 0 1 48 0 Z" fill="#F9FBFA"/>
+  <g clip-path="url(#gs)">
+    <polygon points="40,48 40,40 48,40 48,32 56,32 56,24 64,24 64,16 72,16 72,8 80,8 80,0 88,0 104,0 104,48" fill="#1D9E75"/>
+    <rect x="64" y="0" width="8" height="8" fill="#1D9E75"/>
+    <rect x="48" y="0" width="8" height="8" fill="#1D9E75"/>
+    <rect x="56" y="8" width="8" height="8" fill="#1D9E75"/>
+    <rect x="48" y="16" width="8" height="8" fill="#1D9E75"/>
+    <rect x="32" y="16" width="8" height="8" fill="#1D9E75"/>
+    <rect x="40" y="24" width="8" height="8" fill="#1D9E75"/>
+    <rect x="32" y="32" width="8" height="8" fill="#1D9E75"/>
+    <rect x="16" y="32" width="8" height="8" fill="#1D9E75"/>
+    <rect x="24" y="40" width="8" height="8" fill="#1D9E75"/>
+  </g>
+  <path fill-rule="evenodd" fill="#0E1A18" d="M 50.27 -5 L 69 -5 L 69 3 L 77 3 L 77 11 L 93 11 L 93 19 L 109 19 L 109 37 L 101 37 L 101 45 L 93 45 L 93 53 L 8 53 A 17 17 0 0 1 -9 36 A 25 25 0 0 1 10.79 9.53 A 23 23 0 0 1 50.27 -5 Z M 48 0 L 64 0 L 64 8 L 72 8 L 72 16 L 88 16 L 88 24 L 104 24 L 104 32 L 96 32 L 96 40 L 88 40 L 88 48 L 8 48 A 12 12 0 0 1 -4 36 A 20 20 0 0 1 16 14 A 18 18 0 0 1 48 0 Z"/>
+  </g>
+</svg>

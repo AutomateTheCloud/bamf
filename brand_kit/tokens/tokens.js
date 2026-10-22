@@ -1,0 +1,30 @@
+export const bamfColors = {
+  "light": {
+    "surface": "#F9FBFA",
+    "card": "#FFFFFF",
+    "ink": "#0E1A18",
+    "slate": "#586B67",
+    "brand": "#1D9E75",
+    "action": "#0B6B52",
+    "on-action": "#FFFFFF",
+    "tint": "#DCF2EA",
+    "tint-text": "#074A3B",
+    "success": "#2F7D3B",
+    "warning": "#9A6210",
+    "error": "#A32D2D"
+  },
+  "dark": {
+    "surface": "#0B1513",
+    "card": "#101C19",
+    "ink": "#E6EEEC",
+    "slate": "#8FA39D",
+    "brand": "#1D9E75",
+    "action": "#45CFA5",
+    "on-action": "#0B1513",
+    "tint": "#0F3A30",
+    "tint-text": "#A8E6D2",
+    "success": "#4CC26A",
+    "warning": "#E0A040",
+    "error": "#F07C7C"
+  }
+};
