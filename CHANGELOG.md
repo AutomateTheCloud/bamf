@@ -4,7 +4,7 @@ All notable changes to BAMF are listed here. The format follows [Keep a Changelo
 
 ## [Unreleased]
 
-## [1.0.0] - Unreleased
+## [1.0.0] - 2026-10-22
 
 Initial release.
 
@@ -18,3 +18,6 @@ Initial release.
 - `bamf.curl.inc`, `bamf.docker.inc`, `bamf.git.inc`, `bamf.npm.inc`, `bamf.pkg.inc`, `bamf.tar.inc` and `bamf.terraform.inc` helper files.
 - Tests (bats-core) that run on bash 4.2 and 5.2, ShellCheck linting, and a CI workflow.
 - Examples: `hello.sh`, `config_check.sh`, `pipeline.sh`, `cleanup_and_signals.sh`, `download_verify.sh`, `backup_to_s3.sh`, and a set of AWS CodeDeploy hooks in `examples/codedeploy/`.
+
+[Unreleased]: https://github.com/AutomateTheCloud/bamf/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/AutomateTheCloud/bamf/releases/tag/v1.0.0
