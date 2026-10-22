@@ -1,0 +1,12 @@
+# Pinned test tools downloaded by ci/install_test_dependencies.sh
+/.cache/
+
+# Working copies of earlier versions, kept out of the repository
+/temp/
+
+# Editors and operating systems
+*.swp
+*~
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,66 @@
+#!/bin/bash
+# Copyright 2026 Automate the Cloud Inc.
+# SPDX-License-Identifier: Apache-2.0
+# Stub of the AWS CLI for tests. It never contacts AWS.
+# - records the arguments, the credential environment and the content of file:// and fileb://
+#   arguments in STUB_LOG
+# - answers "<service> <operation>" from files in STUB_DIR:
+#     <service>.<operation>.out    printed on standard output (.out.<n> for the n-th call, if it exists)
+#     <service>.<operation>.err    printed on standard error
+#     <service>.<operation>.rc     exit code (default 0)
+#     <service>.<operation>.fail   a number N: the first N calls fail with exit code 255 (a network error)
+# - "configure list --profile <name>" succeeds only for profiles listed in STUB_PROFILES
+# each line is written with one printf: stubs running at the same time (in a pipeline) append to the
+# same log, and one write per line keeps their lines from mixing
+LINE="ARGV:"; for ARG in "$@"; do LINE+=" [${ARG}]"; done
+{
+    printf '%s\n' "${LINE}"
+    printf 'ENV: AWS_PROFILE=%s AWS_ACCESS_KEY_ID=%s AWS_SESSION_TOKEN=%s\n' "${AWS_PROFILE-<unset>}" "${AWS_ACCESS_KEY_ID-<unset>}" "${AWS_SESSION_TOKEN-<unset>}"
+    for ARG in "$@"; do
+        case "${ARG}" in
+            file://*|fileb://*)
+                FILE="${ARG#*://}"
+                printf 'FILEARG %s mode=%s content=[%s]\n' "${ARG%%://*}" "$(stat -c %a "${FILE}")" "$(cat "${FILE}")"
+                ;;
+        esac
+    done
+} >> "${STUB_LOG:-/dev/null}"
+
+# find "<service> <operation>", skipping global options and their values
+WORDS=()
+SKIP_NEXT=no
+for ARG in "$@"; do
+    if [[ "${SKIP_NEXT}" == "yes" ]]; then SKIP_NEXT=no; continue; fi
+    case "${ARG}" in
+        --region|--profile|--output|--endpoint-url) SKIP_NEXT=yes; continue;;
+        -*) continue;;
+    esac
+    WORDS+=( "${ARG}" )
+    [[ ${#WORDS[@]} -eq 2 ]] && break
+done
+SERVICE="${WORDS[0]:-}"
+OPERATION="${WORDS[1]:-}"
+
+if [[ "${SERVICE} ${OPERATION}" == "configure list" ]]; then
+    PROFILE="$(printf '%s\n' "$@" | grep -A1 -- '--profile' | tail -1)"
+    [[ " ${STUB_PROFILES:-} " == *" ${PROFILE} "* ]] && exit 0
+    echo "The config profile (${PROFILE}) could not be found" >&2
+    exit 255
+fi
+
+BASE="${STUB_DIR:-/nonexistent}/${SERVICE}.${OPERATION}"
+COUNT_FILE="${BASE}.count"
+COUNT=$(( $(cat "${COUNT_FILE}" 2>/dev/null || echo 0) + 1 ))
+echo "${COUNT}" > "${COUNT_FILE}" 2>/dev/null
+
+if [[ -f "${BASE}.fail" ]] && (( COUNT <= $(cat "${BASE}.fail") )); then
+    echo "Could not connect to the endpoint URL: \"https://${SERVICE}.stub/\"" >&2
+    exit 255
+fi
+if [[ -f "${BASE}.out.${COUNT}" ]]; then
+    cat "${BASE}.out.${COUNT}"
+elif [[ -f "${BASE}.out" ]]; then
+    cat "${BASE}.out"
+fi
+[[ -f "${BASE}.err" ]] && cat "${BASE}.err" >&2
+exit "$(cat "${BASE}.rc" 2>/dev/null || echo 0)"

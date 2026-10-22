@@ -1,0 +1,27 @@
+# Copyright 2026 Automate the Cloud Inc.
+# SPDX-License-Identifier: Apache-2.0
+# CodeDeploy application specification for the example in this directory.
+# The revision bundle holds this file, app/, hooks/, and a copy of bamf.inc and helpers/ in bamf/.
+version: 0.0
+os: linux
+files:
+  - source: app
+    destination: /opt/example-app
+file_exists_behavior: OVERWRITE
+hooks:
+  ApplicationStop:
+    - location: hooks/application_stop.sh
+      timeout: 300
+      runas: root
+  BeforeInstall:
+    - location: hooks/before_install.sh
+      timeout: 600
+      runas: root
+  ApplicationStart:
+    - location: hooks/application_start.sh
+      timeout: 300
+      runas: root
+  ValidateService:
+    - location: hooks/validate_service.sh
+      timeout: 180
+      runas: root

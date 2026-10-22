@@ -1,0 +1,92 @@
+# Copyright 2026 Automate the Cloud Inc.
+# SPDX-License-Identifier: Apache-2.0
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: ShellCheck and function reference
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install pinned ShellCheck and bats-core
+        run: ci/install_test_dependencies.sh
+      - name: ShellCheck
+        run: ci/lint.sh
+      - name: README.md function reference is up to date
+        run: ci/function_reference.sh
+      - name: README images match the examples' output
+        run: ci/readme_images.sh
+
+  test:
+    # The oldest supported bash (4.2, CentOS 7) and current ones. The tests run inside each
+    # image as an ordinary user, with the image's own bash and coreutils.
+    name: Test (${{ matrix.image }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        image:
+          - centos:7
+          - debian:12-slim
+          - amazonlinux:2023
+          - ubuntu:24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install pinned bats-core
+        run: ci/install_test_dependencies.sh
+      - name: bats
+        run: ci/test.sh "${{ matrix.image }}"
+
+  test-runner:
+    # The runner's own bash and tools, including openssl, which the container images above do
+    # not have: the KMS file encryption tests run here.
+    name: Test (ubuntu-latest runner)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install pinned bats-core
+        run: ci/install_test_dependencies.sh
+      - name: bats
+        run: ci/test.sh
+
+  dco:
+    # Every commit in a pull request must carry a Signed-off-by line for its author,
+    # agreeing to the Developer Certificate of Origin. See CONTRIBUTING.md.
+    name: DCO sign-off
+    # Dependabot's update pull requests are exempt. The pull request's author is set
+    # by GitHub, so it cannot be faked the way a commit's author email can.
+    if: github.event_name == 'pull_request' && github.event.pull_request.user.login != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Every commit is signed off by its author
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          failed=0
+          for commit in $(git rev-list --no-merges "$BASE_SHA..$HEAD_SHA"); do
+            email=$(git show -s --format='%ae' "$commit")
+            if ! git show -s --format='%(trailers:key=Signed-off-by,valueonly)' "$commit" | grep -qiF "<$email>"; then
+              echo "::error::Commit $(git show -s --format='%h %s' "$commit") has no Signed-off-by line for its author <$email>."
+              failed=1
+            fi
+          done
+          if [ "$failed" -ne 0 ]; then
+            echo "Sign off with 'git commit -s'. To fix existing commits: git rebase --signoff main, then force-push. See CONTRIBUTING.md."
+            exit 1
+          fi
+          echo "Every commit is signed off."
+

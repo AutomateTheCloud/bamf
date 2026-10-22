@@ -1,0 +1,11 @@
+# Copyright 2026 Automate the Cloud Inc.
+# SPDX-License-Identifier: Apache-2.0
+# The application the example deploys: one container, configured from app.env, which
+# hooks/application_start.sh writes from SSM Parameter Store at deployment time.
+services:
+  app:
+    image: ${APP_IMAGE:-public.ecr.aws/nginx/nginx:stable}
+    restart: unless-stopped
+    env_file: app.env
+    ports:
+      - "8080:80"

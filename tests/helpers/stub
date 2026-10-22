@@ -1,0 +1,33 @@
+#!/bin/bash
+# Copyright 2026 Automate the Cloud Inc.
+# SPDX-License-Identifier: Apache-2.0
+# Generic command stub for tests, linked as bin/<command> (docker, systemctl, apt-get, dnf, npm, ...).
+# It never runs the real command.
+# - records each call in STUB_LOG as "CMD: <command> [arg] [arg] ..." with DEBIAN_FRONTEND, and the
+#   standard input when STUB_READ_STDIN names the command
+# - answers from files in STUB_DIR, using the longest match of the command and its first two
+#   arguments that are not options: <command>.<arg1>.<arg2>, <command>.<arg1>, <command>
+#     .out (standard output), .rc (exit code, default 0)
+NAME="${0##*/}"
+# one printf per line, so stubs running at the same time (in a pipeline) do not mix their lines
+LINE="CMD: ${NAME}"; for ARG in "$@"; do LINE+=" [${ARG}]"; done
+{
+    printf '%s\n' "${LINE}"
+    printf 'ENV: DEBIAN_FRONTEND=%s\n' "${DEBIAN_FRONTEND-<unset>}"
+    if [[ " ${STUB_READ_STDIN:-} " == *" ${NAME} "* ]]; then
+        printf 'STDIN: [%s]\n' "$(cat)"
+    fi
+} >> "${STUB_LOG:-/dev/null}"
+WORDS=()
+for ARG in "$@"; do
+    [[ "${ARG}" == -* ]] && continue
+    WORDS+=( "${ARG}" )
+    [[ ${#WORDS[@]} -eq 2 ]] && break
+done
+for KEY in "${NAME}.${WORDS[0]:-}.${WORDS[1]:-}" "${NAME}.${WORDS[0]:-}" "${NAME}"; do
+    if [[ -f "${STUB_DIR}/${KEY}.out" || -f "${STUB_DIR}/${KEY}.rc" ]]; then
+        [[ -f "${STUB_DIR}/${KEY}.out" ]] && cat "${STUB_DIR}/${KEY}.out"
+        exit "$(cat "${STUB_DIR}/${KEY}.rc" 2>/dev/null || echo 0)"
+    fi
+done
+exit 0

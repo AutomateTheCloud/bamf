@@ -1,0 +1,4 @@
+# BAMF is written for bash; library files have no shebang
+shell=bash
+# follow "source" lines to the files they load
+external-sources=true

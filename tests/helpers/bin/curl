@@ -1,0 +1,83 @@
+#!/bin/bash
+# Copyright 2026 Automate the Cloud Inc.
+# SPDX-License-Identifier: Apache-2.0
+# Stub of curl for tests. It never opens a connection.
+# EC2 instance metadata (any URL with /latest/ in it, as BAMF builds them from AWS_METADATA_URL):
+# - PUT .../latest/api/token prints a token (and counts the calls in STUB_DIR/imds.token.count)
+# - GET .../latest/<path> answers from STUB_DIR/imds/<path>: the file's content with HTTP code 200,
+#   or HTTP code 404 when the file does not exist
+# Any other request, for <scheme>://<host>/<path>:
+# - the body is STUB_DIR/http/<host>/<path> (with its query string, if any); the HTTP code is <path>.code (default 200,
+#   404 when the body file is missing); curl's exit code is <path>.exit (default 0). For the n-th
+#   request of a path, <path>.code.<n> and <path>.exit.<n> are used when they exist.
+# - each call is logged in STUB_LOG as "CURL: [arg] ...", with the content of the files given to
+#   --netrc-file, --header @file and --data-binary @file
+OUTPUT=""
+WRITE_OUT=""
+METHOD="GET"
+URL=""
+ARGS=( "$@" )
+FILES=()
+while [[ $# -gt 0 ]]; do
+    case "${1}" in
+        -o|--output) OUTPUT="${2}"; shift;;
+        -w|--write-out) WRITE_OUT="${2}"; shift;;
+        -X) METHOD="${2}"; shift;;
+        --netrc-file) FILES+=( "netrc:${2}" ); shift;;
+        -H|--header) [[ "${2}" == @* ]] && FILES+=( "header:${2#@}" ); shift;;
+        --data-binary) [[ "${2}" == @* ]] && FILES+=( "data:${2#@}" ); METHOD="POST"; shift;;
+        --retry|--connect-timeout|--speed-limit|--speed-time|--max-time|--limit-rate|--cert-type|--cert|--continue-at|-C) shift;;
+        -*) ;;
+        *) URL="${1}";;
+    esac
+    shift
+done
+
+if [[ "${URL}" == */latest/* ]]; then
+    PATH_REQUESTED="${URL#*/latest/}"
+    if [[ "${METHOD}" == "PUT" && "${PATH_REQUESTED}" == "api/token" ]]; then
+        echo $(( $(cat "${STUB_DIR}/imds.token.count" 2>/dev/null || echo 0) + 1 )) > "${STUB_DIR}/imds.token.count"
+        printf '%s' "stub-token"
+        exit 0
+    fi
+    FILE="${STUB_DIR}/imds/${PATH_REQUESTED}"
+    if [[ -f "${FILE}" ]]; then
+        if [[ -n "${OUTPUT}" ]]; then cat "${FILE}" > "${OUTPUT}"; else cat "${FILE}"; fi
+        [[ -n "${WRITE_OUT}" ]] && printf '200'
+        exit 0
+    fi
+    [[ -n "${OUTPUT}" ]] && : > "${OUTPUT}"
+    [[ -n "${WRITE_OUT}" ]] && printf '404'
+    exit 0
+fi
+
+# one printf per line, so stubs running at the same time (in a pipeline) do not mix their lines
+LINE="CURL:"; for ARG in "${ARGS[@]}"; do LINE+=" [${ARG}]"; done
+{
+    printf '%s\n' "${LINE}"
+    for ENTRY in "${FILES[@]}"; do
+        printf 'CURLFILE %s mode=%s content=[%s]\n' "${ENTRY%%:*}" "$(stat -c %a "${ENTRY#*:}")" "$(cat "${ENTRY#*:}")"
+    done
+} >> "${STUB_LOG:-/dev/null}"
+
+BASE="${STUB_DIR}/http/${URL#*://}"
+COUNT=$(( $(cat "${BASE}.count" 2>/dev/null || echo 0) + 1 ))
+mkdir -p "$(dirname "${BASE}")"
+echo "${COUNT}" > "${BASE}.count"
+pick() { if [[ -f "${BASE}.${1}.${COUNT}" ]]; then cat "${BASE}.${1}.${COUNT}"; elif [[ -f "${BASE}.${1}" ]]; then cat "${BASE}.${1}"; else printf '%s' "${2}"; fi; }
+EXIT_CODE="$(pick exit 0)"
+if [[ -f "${BASE}" ]]; then CODE="$(pick code 200)"; else CODE="$(pick code 404)"; fi
+if [[ "${EXIT_CODE}" != "0" ]]; then
+    echo "curl: (${EXIT_CODE}) stub failure" >&2
+    [[ -n "${WRITE_OUT}" ]] && printf '%s' "${WRITE_OUT}" | sed -e 's/%{http_code}/000/g' -e 's/%{[a-z_]*}/0/g'
+    exit "${EXIT_CODE}"
+fi
+SIZE=0
+if [[ -f "${BASE}" ]]; then
+    SIZE="$(stat -c %s "${BASE}")"
+    if [[ -n "${OUTPUT}" && "${OUTPUT}" != "/dev/null" ]]; then cat "${BASE}" > "${OUTPUT}"; elif [[ -z "${OUTPUT}" ]]; then cat "${BASE}"; fi
+elif [[ -n "${OUTPUT}" && "${OUTPUT}" != "/dev/null" ]]; then
+    printf '{"message": "Not Found"}' > "${OUTPUT}"
+fi
+[[ -n "${WRITE_OUT}" ]] && printf '%s' "${WRITE_OUT}" | sed -e "s/%{http_code}/${CODE}/g" -e "s/%{size_download}/${SIZE}/g" -e 's/%{[a-z_]*}/0/g'
+exit 0
