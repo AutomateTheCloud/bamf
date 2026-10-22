@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="brand_kit/logos/svg/bamf-stacked-dark.svg">
+    <img src="brand_kit/logos/svg/bamf-stacked-light.svg" width="480" alt="BAMF: BASH Application Management Framework">
+  </picture>
+</p>
+
 # BAMF: BASH Application Management Framework
 
 BAMF is a library for bash scripts. You source one file, `bamf.inc`, and your script gets consistent logging, named exit codes, temporary files that are always cleaned up, dependency checks, signal handling, and a set of everyday helpers for strings, files, and configuration.
@@ -340,7 +347,7 @@ BASH Application Management Framework (BAMF) core library
 
 BAMF is licensed under the [Apache License 2.0](LICENSE). See [NOTICE](NOTICE) for the copyright notice.
 
-The Automate the Cloud name and logo are not covered by this license.
+The BAMF and Automate the Cloud names and logos, including everything in [`brand_kit/`](brand_kit/), are not covered by this license. See [`brand_kit/NOTICE.md`](brand_kit/NOTICE.md).
 
 ---
 

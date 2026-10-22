@@ -4,6 +4,10 @@ All notable changes to BAMF are listed here. The format follows [Keep a Changelo
 
 ## [Unreleased]
 
+### Added
+
+- The BAMF logo, at the top of the README, and its brand kit in `brand_kit/`. The logos and the kit are not covered by the Apache License 2.0; see `brand_kit/NOTICE.md`.
+
 ## [1.0.0] - 2026-10-22
 
 Initial release.

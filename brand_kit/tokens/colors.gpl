@@ -1,0 +1,28 @@
+GIMP Palette
+Name: BAMF / Automate the Cloud
+Columns: 6
+#
+249 251 250 light-surface
+255 255 255 light-card
+ 14  26  24 light-ink
+ 88 107 103 light-slate
+ 29 158 117 light-brand
+ 11 107  82 light-action
+255 255 255 light-on-action
+220 242 234 light-tint
+  7  74  59 light-tint-text
+ 47 125  59 light-success
+154  98  16 light-warning
+163  45  45 light-error
+ 11  21  19 dark-surface
+ 16  28  25 dark-card
+230 238 236 dark-ink
+143 163 157 dark-slate
+ 29 158 117 dark-brand
+ 69 207 165 dark-action
+ 11  21  19 dark-on-action
+ 15  58  48 dark-tint
+168 230 210 dark-tint-text
+ 76 194 106 dark-success
+224 160  64 dark-warning
+240 124 124 dark-error

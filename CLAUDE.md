@@ -22,6 +22,8 @@ explanations matter more than features.
   through `REQUIRED_SOURCE_FILES` (looked up in `helpers/`, then beside `bamf.inc`). Anything
   tool-specific goes here, never in the core. `helpers/README.md` documents them.
 - `examples/`: complete scripts that run as they are and teach one thing each.
+- `brand_kit/`: the BAMF logo, icons, colors, and usage rules. Not under the Apache License 2.0
+  (`brand_kit/NOTICE.md`); change the artwork only with David.
 - `tests/`: bats-core tests; `tests/fixtures/script.sh` exercises the script lifecycle.
 - `ci/`: `install_test_dependencies.sh` (pinned, checksum-verified ShellCheck and bats-core),
   `lint.sh`, `test.sh`, `function_reference.sh` (generates the references in `README.md` for

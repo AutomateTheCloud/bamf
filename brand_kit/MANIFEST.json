@@ -1,0 +1,362 @@
+{
+ "BAMF-Brand-Guide.pdf": {
+  "bytes": 353989,
+  "sha256": "2f29c016c3a94e2bfbbb328e19676b9965383d06870b01244d7c3d1d34db8dc1"
+ },
+ "NOTICE.md": {
+  "bytes": 975,
+  "sha256": "47355bc93a859034907bd0132f5eebed59da3bf04888284c8997ca5df7458c25"
+ },
+ "README.md": {
+  "bytes": 3994,
+  "sha256": "8130f73ad370ada2f3fa448c04eddd8da54f39c1aba6a48d4d80c2c9aab0d6a6"
+ },
+ "brand-preview.html": {
+  "bytes": 5553,
+  "sha256": "91fea30a13be0c4dcf80fb13e59083990bad1413b9e004ef45933ea6b5c8ae7a"
+ },
+ "docs/README-example.md": {
+  "bytes": 734,
+  "sha256": "0953e0d1edf9aba983a089507dbbd5384344c4dc4f97f0349d0c37ec69337d35"
+ },
+ "docs/usage.md": {
+  "bytes": 1720,
+  "sha256": "707154d3b3e490983f7969d944cec4768fd8fd48043c3267bd12f6b4c9d37e3b"
+ },
+ "fonts/README.md": {
+  "bytes": 2097,
+  "sha256": "0656677d07f675021ea6f9950404fbfac1dceffdff603417c06ac193ba4e7238"
+ },
+ "fonts/fetch-fonts.py": {
+  "bytes": 2091,
+  "sha256": "9ee1b4a692e967159d6e0320406a2bc27fc05d5e84a422d1758e4b515cabfaad"
+ },
+ "fonts/fonts.css": {
+  "bytes": 1522,
+  "sha256": "edf93f2925baf20a0422dca58f0738c5c3ab5a4abcc7dbff30f33f31c7d97a6c"
+ },
+ "icons/avatar-1024.png": {
+  "bytes": 76805,
+  "sha256": "2f006339345fcc96798330d09f85b3876381317c4472036aff8a33aaeb01580d"
+ },
+ "icons/avatar-128.png": {
+  "bytes": 8043,
+  "sha256": "b32bb24b9b05f8fd97210ed5e491d8ef815a06a63776c18fb9c4e07388ddbfd2"
+ },
+ "icons/avatar-256.png": {
+  "bytes": 17172,
+  "sha256": "a106a30fcb67a4e5e8c676ec3b18fbf01418b2d2e2a3c9dbed4194b3a74d092a"
+ },
+ "icons/avatar-512.png": {
+  "bytes": 36320,
+  "sha256": "6461cfb31cefbf90ac5447620ab07fcc33f99418729c78ef2a8741909df7d6a8"
+ },
+ "icons/avatar.svg": {
+  "bytes": 20131,
+  "sha256": "fc38dbadb32dcf2b7eb763522b95ec162604bb4227628674320b7b2e82b12d89"
+ },
+ "icons/favicon-128.png": {
+  "bytes": 2652,
+  "sha256": "ba59d22e0527b9528d8be281e64ac59cc7fcd9c58c9065278a3f32a930eed203"
+ },
+ "icons/favicon-16.png": {
+  "bytes": 520,
+  "sha256": "48a611df6ecb99e090129cc81b19479fafe1a92e9885b0a8bfe3145fc314d174"
+ },
+ "icons/favicon-180.png": {
+  "bytes": 3780,
+  "sha256": "c3633ac31daa4f7b62fc50691e6a10ade37b464966836615459974a1938dc8a7"
+ },
+ "icons/favicon-192.png": {
+  "bytes": 4098,
+  "sha256": "e6b585326d16d7e15df2993e3224fa99d3084ee1615d908e8566ce3b138f67e9"
+ },
+ "icons/favicon-256.png": {
+  "bytes": 5575,
+  "sha256": "74c85da841c6d00ac5ff1b16b9b838f7e52a5a82b84c5476c944e9ae58ae0be7"
+ },
+ "icons/favicon-32.png": {
+  "bytes": 817,
+  "sha256": "c0ae1d74ea6dcedcbb92646511e7c586ee27e98853080bf52ad40db1b9a0e459"
+ },
+ "icons/favicon-48.png": {
+  "bytes": 1104,
+  "sha256": "9515e1f6e6bf5c70d11ad46d7ada6e592aaef7ac2842549524f53f1139de04d4"
+ },
+ "icons/favicon-512.png": {
+  "bytes": 11704,
+  "sha256": "65638d9d4cc0622c740729f99f24f24a7274c026f9b1d7d0fb5ac31cd00ed6a6"
+ },
+ "icons/favicon-64.png": {
+  "bytes": 1382,
+  "sha256": "42ca20f45b01a2b000dcae3d2d43710928289a6706721b4a0c04f3d66061cbe6"
+ },
+ "icons/favicon.ico": {
+  "bytes": 16545,
+  "sha256": "5458d8ae5807b1f53db635e7a18535f018252e4c93c54560d0439bebc8663d58"
+ },
+ "icons/favicon.svg": {
+  "bytes": 1356,
+  "sha256": "3f5105059e9e17854e16b74c6641f4640d5c4fb4602e22251c6fd1b30ba57856"
+ },
+ "icons/head-snippet.html": {
+  "bytes": 379,
+  "sha256": "581c25224947066376ce9b4dd47ced0b2bcfbdd4a12256dc1b3883861d65e7d9"
+ },
+ "icons/site.webmanifest": {
+  "bytes": 343,
+  "sha256": "865f51af6eac0892447f2fe6b76886740563ad6500c9f812de2ea03f700a8cdb"
+ },
+ "logos/png/bamf-compact-dark-1024.png": {
+  "bytes": 87769,
+  "sha256": "8b24753b9ce8fe2b7041c8b91906e4e72bb2b49c217e8740c24f44b3e3ba1752"
+ },
+ "logos/png/bamf-compact-dark-2400.png": {
+  "bytes": 224059,
+  "sha256": "557fa283cc97e6d8a1e6d3e177c165845afc7d2fdbeaf25a4c46de9888951e9a"
+ },
+ "logos/png/bamf-compact-dark-512.png": {
+  "bytes": 40551,
+  "sha256": "755deb22e3bdea7f2f744153b552ca399d58cfdc5444f5e4ab525bacd587901c"
+ },
+ "logos/png/bamf-compact-light-1024.png": {
+  "bytes": 77485,
+  "sha256": "1787578f5bcdf190e79dc209f29030e919089c700011d822fe369687e9a449c9"
+ },
+ "logos/png/bamf-compact-light-2400.png": {
+  "bytes": 197351,
+  "sha256": "6292fdc90d2b1894a68c87ee185005aea8cb65f050d3f4bccb980638f8b22115"
+ },
+ "logos/png/bamf-compact-light-512.png": {
+  "bytes": 36750,
+  "sha256": "89b3b0dcf842be89dce9b486f6947c0dbe05dc685b9b47363fcef022a76492e7"
+ },
+ "logos/png/bamf-horizontal-dark-1024.png": {
+  "bytes": 64475,
+  "sha256": "e6c8657d741cc73506e03ac54d0e0e67be731860cfeb6d6352ebd476cf3f549e"
+ },
+ "logos/png/bamf-horizontal-dark-2400.png": {
+  "bytes": 166186,
+  "sha256": "50de7080aef5e8c12e60d9afc537892086c34257f19708b36aca70fc0397b80f"
+ },
+ "logos/png/bamf-horizontal-dark-512.png": {
+  "bytes": 29306,
+  "sha256": "ed69aa76bf3c1ef0ac8a212b3c5911fa771f30db87b45e929642969a1b9cb733"
+ },
+ "logos/png/bamf-horizontal-light-1024.png": {
+  "bytes": 58720,
+  "sha256": "9ac5242238062ad927421060341cf285e40eac47dae6035e873e394338874836"
+ },
+ "logos/png/bamf-horizontal-light-2400.png": {
+  "bytes": 148552,
+  "sha256": "a1f12982a3f4f79caafb7acc2f930e16ee943c0e581abc3bc539dba117a4d5a1"
+ },
+ "logos/png/bamf-horizontal-light-512.png": {
+  "bytes": 27521,
+  "sha256": "aea4fcb3d57ff06476fe2f91e8a6bff05d038a7a8253d842425965742786b4d4"
+ },
+ "logos/png/bamf-mascot-1024.png": {
+  "bytes": 93249,
+  "sha256": "c0829af824da9ca4cc51fbe1876266c6a29996df0ce72151b0bc48e855578486"
+ },
+ "logos/png/bamf-mascot-2400.png": {
+  "bytes": 237442,
+  "sha256": "9ee31194a3894e53e3f4b20aeb9e0533caf5fc167d5980f5772f3b6be8965b97"
+ },
+ "logos/png/bamf-mascot-512.png": {
+  "bytes": 44268,
+  "sha256": "e7dd4b6e75d3d0d74437e42e3765d5a5c76bb6c8fdc9801d022b4b8736925274"
+ },
+ "logos/png/bamf-mono-ink-1024.png": {
+  "bytes": 73331,
+  "sha256": "2039f17fae6d0fba156852e73902a129b0d2703f50d882e3ecb6f4270dbeb672"
+ },
+ "logos/png/bamf-mono-ink-2400.png": {
+  "bytes": 187323,
+  "sha256": "0d6fcb98e2b41e161303ffb9c714d0ccdd4a98e1a6cca027dff40a80a187754e"
+ },
+ "logos/png/bamf-mono-ink-512.png": {
+  "bytes": 34219,
+  "sha256": "0bf25a30e3251027fd6b3dada08a298cecacd98ec09b233ebec3a6a2ca1587c5"
+ },
+ "logos/png/bamf-mono-white-1024.png": {
+  "bytes": 67696,
+  "sha256": "65feef6f9c77f5203636c03d74a81dc2b94d5e0f25d7b3da22e4d9e5af8b7dfb"
+ },
+ "logos/png/bamf-mono-white-2400.png": {
+  "bytes": 174350,
+  "sha256": "e6f49462f55602056cc05366e6c6b97a2db6b0ee7d331397d39e2be98bfd14d8"
+ },
+ "logos/png/bamf-mono-white-512.png": {
+  "bytes": 31020,
+  "sha256": "2af103d817e9ab02cfda034f92c899716c0bebeb11a6a85e867fe4e75ffd2994"
+ },
+ "logos/png/bamf-stacked-dark-1024.png": {
+  "bytes": 108390,
+  "sha256": "6da240cc02792371a7b71e3a7c7cd88171cad1e22f04219670e02d5be602b080"
+ },
+ "logos/png/bamf-stacked-dark-2400.png": {
+  "bytes": 274893,
+  "sha256": "78f0b72ce6677809ba0980173526ea8810a5b54c9ac11514e87e2af13240a949"
+ },
+ "logos/png/bamf-stacked-dark-512.png": {
+  "bytes": 50229,
+  "sha256": "3a75c6f490f62f390b66b9becb307e477a89174c93a33394f245f9f8a3792b2c"
+ },
+ "logos/png/bamf-stacked-light-1024.png": {
+  "bytes": 98871,
+  "sha256": "b58a5266c9081788642d8db2d7a7b6c4e5833b0f74b9fcc550d8e79d980fb29a"
+ },
+ "logos/png/bamf-stacked-light-2400.png": {
+  "bytes": 248511,
+  "sha256": "d87d2f82b58b39a587af1cf1dc9b406ece6bbef34a995149ada1ef8af9c74fc2"
+ },
+ "logos/png/bamf-stacked-light-512.png": {
+  "bytes": 46713,
+  "sha256": "84a86af7e71a80086c246331f5600ba91a85cc620b270b61e91265033b9fe5a6"
+ },
+ "logos/png/bamf-stacked-on-dark-1024.png": {
+  "bytes": 106522,
+  "sha256": "18177c53ecf6d23e40b811c187cda393751a3163c138f0e375c93b3e982ec0e1"
+ },
+ "logos/png/bamf-stacked-on-dark-2400.png": {
+  "bytes": 271397,
+  "sha256": "f8a7c865d0a4d20328ef537b7a6972840e412686e5f24e0979e20bdc810b8dd3"
+ },
+ "logos/png/bamf-stacked-on-dark-512.png": {
+  "bytes": 48771,
+  "sha256": "65b0bf26f5a7a080a6128b33fc1883e1dec032ec2954363f1fed7f65c2adeada"
+ },
+ "logos/png/bamf-stacked-on-light-1024.png": {
+  "bytes": 92817,
+  "sha256": "b97f6c768878956c100c496fbd8fd82841c79fb90251894554b2eba863a3acbe"
+ },
+ "logos/png/bamf-stacked-on-light-2400.png": {
+  "bytes": 234890,
+  "sha256": "682e2b3972c1724e142ea90415c29c0e68281b5c543fa57f207c9fcae9ef7696"
+ },
+ "logos/png/bamf-stacked-on-light-512.png": {
+  "bytes": 43759,
+  "sha256": "9785078424b4983b9c53e2fc495b5dc55a386eeb91161d226d01c03788e0f593"
+ },
+ "logos/png/bamf-wordmark-dark-1024.png": {
+  "bytes": 17561,
+  "sha256": "dfb94337f2d8fdc4f706392f7f01f8287a377533e4240dfd04d219904394a23c"
+ },
+ "logos/png/bamf-wordmark-dark-2400.png": {
+  "bytes": 45681,
+  "sha256": "7d21e0d1c5cc602fa600ecc42fa437fe32cdc0dace5814f1328fa89b523ae1bf"
+ },
+ "logos/png/bamf-wordmark-dark-512.png": {
+  "bytes": 8370,
+  "sha256": "c8a7b6eec6d258560ddaa968fd5b2ac60ecfd55a5773a0bbce1c9bfe6c882d17"
+ },
+ "logos/png/bamf-wordmark-light-1024.png": {
+  "bytes": 17786,
+  "sha256": "02018cc9dc613783935ed40cec57d3b6e5f60b691c64d7db1b065ab58180e257"
+ },
+ "logos/png/bamf-wordmark-light-2400.png": {
+  "bytes": 45914,
+  "sha256": "e4a6e4559f4b9b10f0cbd8fee0a9de044b41aad1eafa934eb5d46b2cc5845ac4"
+ },
+ "logos/png/bamf-wordmark-light-512.png": {
+  "bytes": 8458,
+  "sha256": "b499e98cb212325235da5b68f956a68b2740b5c9cdc2138339801e5ac005997d"
+ },
+ "logos/svg/bamf-compact-dark.svg": {
+  "bytes": 27616,
+  "sha256": "ca0ec00605c3b3748b21219abb86b193d41661c0e7266df85808e6f433914017"
+ },
+ "logos/svg/bamf-compact-light.svg": {
+  "bytes": 22811,
+  "sha256": "07b2e1cfaa7d8e4ed79261363ed7647854c3a1150b1549387a8c45fbce5fb650"
+ },
+ "logos/svg/bamf-horizontal-dark.svg": {
+  "bytes": 47857,
+  "sha256": "4b8758b1322b1323a36dc213ae57a4aa62120a7edfa7630f7da2602072439796"
+ },
+ "logos/svg/bamf-horizontal-light.svg": {
+  "bytes": 43052,
+  "sha256": "76b8e2107845df4e63f7c8fa5a64b81220e029569ef6e89c2f051a8d71f3829a"
+ },
+ "logos/svg/bamf-mascot.svg": {
+  "bytes": 20009,
+  "sha256": "670e8fd5b3841948e66dc4ffe41d9d3bd17644f23d57c63b4bbe0c9c7a5ccd14"
+ },
+ "logos/svg/bamf-mono-ink.svg": {
+  "bytes": 32657,
+  "sha256": "518867a24ec715d6d4bb45ed3c8376403480071122cfd856909da3e24c482d06"
+ },
+ "logos/svg/bamf-mono-white.svg": {
+  "bytes": 32657,
+  "sha256": "c46755405794c223a2ed890766b0447edf7dde215db6aa68d6ffc2397885e532"
+ },
+ "logos/svg/bamf-stacked-dark.svg": {
+  "bytes": 47771,
+  "sha256": "57e7506ab8bbbd78c4df92f1c22031964325a02760eaae917b7c36e9a9348881"
+ },
+ "logos/svg/bamf-stacked-light.svg": {
+  "bytes": 42966,
+  "sha256": "9494d9819f70ef2837a69bbd0fa7a9d19c30fbf028cfb1cf6d7f9c389b66893d"
+ },
+ "logos/svg/bamf-stacked-on-dark.svg": {
+  "bytes": 47794,
+  "sha256": "fdccb958f4502d87b54cf90b9d24eac91c8b7979e816222426a597fb411dff62"
+ },
+ "logos/svg/bamf-stacked-on-light.svg": {
+  "bytes": 42989,
+  "sha256": "21f31984c1e15827e051f77994135dd858bc6ab5baacbc26c2c30934c2f8a5c1"
+ },
+ "logos/svg/bamf-wordmark-dark.svg": {
+  "bytes": 2971,
+  "sha256": "9504b56e6f4b6b5f70a8307f46e55b9cdf981236ea2c4dd2c25e3a7102281049"
+ },
+ "logos/svg/bamf-wordmark-light.svg": {
+  "bytes": 2971,
+  "sha256": "ac1beda8cf1411faa35a8cce68c7dca91c45f5fadf057e77526400572d4b4b38"
+ },
+ "reference/atc-favicon-solid.svg": {
+  "bytes": 1233,
+  "sha256": "99ee74d2f6c41827e3fef18e782a3c63615b8acde4abf96e0fd7048f82767a5d"
+ },
+ "reference/atc-favicon.svg": {
+  "bytes": 1603,
+  "sha256": "40058b3a3d875429388c22b620d2f031a8127977582c2affc28dee508b08224e"
+ },
+ "reference/atc-icon-maskable.svg": {
+  "bytes": 1658,
+  "sha256": "b9209f6f6931b5a3a6427c363181fb512410fb186e9a3e3a6ce3cdb5ddd1f36f"
+ },
+ "reference/atc-icon-square.svg": {
+  "bytes": 1843,
+  "sha256": "1d587b67a7b821c125478431a2b6378404b78c46a98709a1ca6381e668de439d"
+ },
+ "social/github-social-1200x630.png": {
+  "bytes": 66406,
+  "sha256": "b9c9edf4ef33623989b1bb50bc01561dfb7c187f4026526af2fa93f73baf662a"
+ },
+ "social/github-social.svg": {
+  "bytes": 43195,
+  "sha256": "0a7431675ee89598785fe21c67fa171bb8eb1f8d2d5d97a6c4523464f90e6273"
+ },
+ "source/approved-concept.png": {
+  "bytes": 1500622,
+  "sha256": "5950e13fc8493b00c821ec5f66eb7b0e925831e89c75cad4d3d2b279ebb63acf"
+ },
+ "tokens/colors.gpl": {
+  "bytes": 644,
+  "sha256": "779a594accb102ca1f27a1a29b48c6d27231e7689074606e8ef1e828af4df55d"
+ },
+ "tokens/colors.json": {
+  "bytes": 634,
+  "sha256": "575fb96e0026f526a35c7bdfbbab4118e86a6d4caf93e8c8772ea343b7b1db77"
+ },
+ "tokens/tokens.css": {
+  "bytes": 860,
+  "sha256": "cf48b4ace94da3da826af750dac5dba73830a3bebb594c823a97d06d78549cc1"
+ },
+ "tokens/tokens.js": {
+  "bytes": 661,
+  "sha256": "6fe3a820448472657c5594f426d7d019272e2d4e785d542488fad29e50c5d25d"
+ }
+}
